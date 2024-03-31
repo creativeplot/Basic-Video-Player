@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="creative">
+    <meta name="description" content="making a video player">
+    <title>A Video Player</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="video-player-style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="video-and-controls-container show-control-bar">
+
+
+        <div class="controls-bar-wrapper">
+
+
+            <div class="time-line">
+                  <div class="progress-bar-container">
+
+                    <div class="progress-bar">
+                        <div class="ball"></div>
+                    </div>
+
+                  </div>
+
+                  <span>00:00</span>
+            </div>
+
+
+            <div class="general-constrols">
+
+                <div class="control-left contr-blocks">
+                    <button class="volume-button">
+                        <i class="ri-volume-up-fill button-icon">
+                            <input type="range" min="0" max="1" step="any" value="0.3">
+                        </i>
+                    </button>
+
+                    <div class="video-duration-info">
+                        <p class="current-duration">00:00</p>
+                        <p> / </p>
+                        <p class="total-duration">00:00</p>
+                    </div>
+                </div>
+
+
+                <div class="control-center contr-blocks">
+                    <button class="go-backward">
+                        <i class="ri-rewind-fill"></i>
+                    </button>
+
+                    <button class="play-pause">
+                        <i class="ri-play-large-fill"></i>
+                    </button>
+
+                    <button class="go-forward">
+                        <i class="ri-speed-fill"></i>
+                    </button>
+                </div>
+
+
+                <div class="control-right contr-blocks">
+                    <button class="video-speed">
+                        <i class="ri-slow-down-line speed-icon">
+                            <ul class="speed-options-container">
+                                <li>
+                                    2x
+                                </li>
+                                <li>
+                                    1.5x
+                                </li>
+                                <li>Normal</li>
+                                <li>
+                                    0.75x
+                                </li>
+                                <li>
+                                    0.5x
+                                </li>
+                            </ul>
+                        </i>
+                    </button>
+
+                    <button class="smaller-screen">
+                        <i class="ri-picture-in-picture-2-fill"></i>
+                    </button>
+
+                    <button class="full-screen">
+                        <i class="ri-fullscreen-fill"></i>
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <video src="WaterFall.mp4" class="my-video"></video>
+    </div>
+</body>
+</html>

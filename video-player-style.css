@@ -1,0 +1,299 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Sixtyfour:SCAN@-15&family=Tauri&display=swap');
+
+
+
+/* RESET */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL CONFIG */
+
+body {
+    font-family: 'tauri', 'arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #647892;
+}
+
+.video-and-controls-container {
+    position: relative;
+    border-radius: 10px;
+    z-index: 1;
+    max-width: 1200px;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    margin-top: 5rem;
+    z-index: 1;
+    box-shadow: 5px 5px 50px 0px black;
+}
+
+.video-and-controls-container.fullscreen-on {
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.my-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* this makes the video responds to container change of height and width */
+}
+
+/* control bar base */
+.controls-bar-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.10s ease-in-out;
+}
+
+.video-and-controls-container.show-control-bar .controls-bar-wrapper{
+    opacity: 1;
+    transition: all 0.10s ease-in-out;
+}
+
+.controls-bar-wrapper::before {
+    content: "";
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.688), rgba(0, 0, 0, 0.403), rgba(0, 0, 0, 0.213));
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+/* ====================================================== */
+
+
+
+/* DURATION BAR SECTION */
+
+/* time line base */
+.controls-bar-wrapper .time-line {
+    background-color: rgba(255, 255, 255, 0.848);
+    position: relative;
+    height: 5px;
+    width: 100%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.time-line span {
+    position: relative;
+    display: none;
+    bottom: 20px;
+}
+
+.time-line:hover span {
+    display: block;
+}
+
+
+
+/* progress bar */
+.progress-bar {
+    background-color: #1da8e3e7;
+    height: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 0%;
+    position: absolute;
+}
+
+.ball {
+    background-color: #1db1f0;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.ball {
+    display: none;
+}
+
+.time-line:hover .ball {
+    display: block;
+}
+
+
+
+/* ========================================================= */
+
+
+/* CONTROLS */
+
+/* controls base */
+.general-constrols {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+}
+
+
+.contr-blocks {
+    min-width: 150px;
+    width: 100%;
+    max-width: 250;
+    display: flex;
+    align-items: center;
+}
+
+.contr-blocks button {
+    background-color: transparent;
+    border:none;
+}
+
+i {
+    cursor: pointer;
+    color: white;
+}
+
+
+
+/* Specific Constrols */
+
+/* control left */
+.volume-button {
+    margin-left: 20px;
+    width: 35px;
+    height: 35px;
+}
+
+.button-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+input {
+    display: none;
+    position: absolute;
+    transform: rotateZ(270deg);
+    bottom: 90px;
+    width: 100px;
+    left: -15px;
+    z-index: 2;
+}
+
+.button-icon:hover {
+    color:#f2fcff;
+}
+
+.button-icon:hover input {
+    cursor: pointer;
+    display: block;
+}
+
+.video-duration-info {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+}
+
+
+
+
+/* control center */
+.control-center {
+    justify-content: center;
+}
+
+.control-center button {
+    font-size: 1.8rem;
+    margin-inline: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.control-center button:active {
+    font-size: 1.7rem;
+}
+
+.control-center button i:hover {
+    color: #f2fcff;
+}
+
+
+
+
+/* control right */
+.control-right {
+    justify-content: end;
+}
+
+.control-right button {
+    font-size: 1.68rem;
+    margin-right: 20px;
+    width: 35px;
+    height: 35px;
+}
+
+.control-right button i:hover {
+    color:#f2fcff;
+}
+
+.control-right .speed-icon:active {
+    font-size: 1.5rem;
+}
+
+/* speed config */
+.speed-options-container {
+    display: none;
+    list-style: none;
+    position: absolute;
+    bottom: 55px;
+    right: 100px;
+    border-radius: 10px;
+    font-family: 'lato', sans-serif;
+    font-size: 1.25rem;
+    background-color: #cfcfcfe8;
+    color: rgba(0, 0, 0, 0.788);
+    z-index: 2;
+}
+
+.speed-options-container li {
+    padding: 5px 18px 5px 18px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.speed-options-container li:last-child {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.speed-options-container li:first-child {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.speed-options-container li:hover {
+    background-color: #1db1f0;
+}
+
+
+
+.smaller-screen i:active {
+    font-size: 1.5rem; 
+}
+
+.full-screen i:active {
+    font-size: 1.5rem; 
+};
